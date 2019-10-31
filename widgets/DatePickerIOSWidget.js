@@ -2,6 +2,7 @@ import React from 'react';
 import createReactClass from 'create-react-class';
 import {
   View,
+  Text,
   PixelRatio
 } from 'react-native';
 import DatePicker from 'react-native-date-picker';
@@ -21,7 +22,7 @@ module.exports = createReactClass({
   
   getInitialState() {
     return {
-      value: new Date(),
+      value: this.props.date || new Date(),
     };
   },
   
@@ -35,8 +36,12 @@ module.exports = createReactClass({
         <DatePicker
           style={this.getStyle('picker')}
           {...this.props}
-          onDateChange={date => this.props.onDateChange(date)}
-          date={this.state.value}
+          onDateChange={date => {
+            this.props.onDateChange(date);
+            this._onChange(date);
+          }}
+          value={this.props.value}
+          date={this.props.value || this.state.value}
         />
       </View>
     );
