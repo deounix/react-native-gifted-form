@@ -40,7 +40,8 @@ module.exports = createReactClass({
             this.props.onDateChange(date);
             this._onChange(date);
           }}
-          value={this.props.value}
+          minimumDate={new Date(new Date().getFullYear() - 100 + "")}
+          maximumDate={new Date()}
           date={this.props.value || this.state.value}
         />
       </View>
