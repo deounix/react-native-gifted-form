@@ -2,9 +2,9 @@ import React from 'react';
 import createReactClass from 'create-react-class';
 import {
   View,
-  DatePickerIOS,
   PixelRatio
 } from 'react-native';
+import DatePicker from 'react-native-date-picker';
 
 var WidgetMixin = require('../mixins/WidgetMixin.js');
 
@@ -14,7 +14,7 @@ module.exports = createReactClass({
   
   getDefaultProps() {
     return {
-      type: 'DatePickerIOSWidget',
+      type: 'DatePickerWidget',
       getDefaultDate: () => { return new Date(); }
     };
   },
@@ -32,7 +32,7 @@ module.exports = createReactClass({
   render() {
     return (
       <View style={this.getStyle('row')}>
-        <DatePickerIOS
+        <DatePicker
           style={this.getStyle('picker')}
 
           {...this.props}
