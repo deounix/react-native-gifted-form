@@ -35,7 +35,7 @@ module.exports = createReactClass({
         <DatePicker
           style={this.getStyle('picker')}
           {...this.props}
-          onDateChange={this._onChange}
+          onDateChange={date => this.props.onDateChange(date)}
           date={this.state.value}
         />
       </View>
