@@ -14,7 +14,7 @@ module.exports = createReactClass({
   
   getDefaultProps() {
     return {
-      type: 'DatePickerWidget',
+      type: 'DatePickerIOSWidget',
       getDefaultDate: () => { return new Date(); }
     };
   },
@@ -34,9 +34,7 @@ module.exports = createReactClass({
       <View style={this.getStyle('row')}>
         <DatePicker
           style={this.getStyle('picker')}
-
           {...this.props}
-          
           onDateChange={this._onChange}
           date={this.state.value}
         />
